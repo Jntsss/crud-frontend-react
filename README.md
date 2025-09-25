@@ -33,7 +33,7 @@ A comunicação com o backend é realizada através de requisições HTTP, geren
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/crud-frontend-react.git](https://github.com/seu-usuario/crud-frontend-react.git)
+    git clone [https://github.com/Jntsss/crud-frontend-react.git](https://github.com/Jntsss/crud-frontend-react.git)
     ```
 
 2.  **Acesse a pasta do projeto:**
@@ -56,4 +56,4 @@ A comunicação com o backend é realizada através de requisições HTTP, geren
 
 ## Autor
 
-* **[Seu Nome Completo]**
+* **Jônatas de Souza Santos**
