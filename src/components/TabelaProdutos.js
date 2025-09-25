@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { buscarProdutos, deletarProduto } from '../services/api';
 
-const TabelaProdutos = () => {
+const TabelaProdutos = ({ onEditarProduto }) => {
   const [produtos, setProdutos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
@@ -158,24 +158,46 @@ const TabelaProdutos = () => {
                     textAlign: 'center',
                     borderBottom: '1px solid #eee'
                   }}>
-                    <button
-                      onClick={() => handleDeletar(produto.id, produto.nome)}
-                      style={{
-                        backgroundColor: '#d32f2f',
-                        color: 'white',
-                        border: 'none',
-                        padding: '8px 16px',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        fontSize: '14px',
-                        fontWeight: 'bold',
-                        transition: 'background-color 0.2s'
-                      }}
-                      onMouseOver={(e) => e.target.style.backgroundColor = '#b71c1c'}
-                      onMouseOut={(e) => e.target.style.backgroundColor = '#d32f2f'}
-                    >
-                      Deletar
-                    </button>
+                    <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                      {onEditarProduto && (
+                        <button
+                          onClick={() => onEditarProduto(produto)}
+                          style={{
+                            backgroundColor: '#1976d2',
+                            color: 'white',
+                            border: 'none',
+                            padding: '8px 16px',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            transition: 'background-color 0.2s'
+                          }}
+                          onMouseOver={(e) => e.target.style.backgroundColor = '#1565c0'}
+                          onMouseOut={(e) => e.target.style.backgroundColor = '#1976d2'}
+                        >
+                          Editar
+                        </button>
+                      )}
+                      <button
+                        onClick={() => handleDeletar(produto.id, produto.nome)}
+                        style={{
+                          backgroundColor: '#d32f2f',
+                          color: 'white',
+                          border: 'none',
+                          padding: '8px 16px',
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                          fontSize: '14px',
+                          fontWeight: 'bold',
+                          transition: 'background-color 0.2s'
+                        }}
+                        onMouseOver={(e) => e.target.style.backgroundColor = '#b71c1c'}
+                        onMouseOut={(e) => e.target.style.backgroundColor = '#d32f2f'}
+                      >
+                        Deletar
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
